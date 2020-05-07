@@ -1,0 +1,15 @@
+{% load static %}
+{% if angebot_list %}
+<ul>
+  {% for unternehmen_angebot in angebot_list %}
+  <li>
+    <a href="file:///home/andreas/DjangoTextdateien/{{ unternehmen_angebot.anzeige }}">
+      {{ unternehmen_angebot.firma }} |
+      {{ unternehmen_angebot.bezeichnung }}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>Keine Angebote verfügbar.</p>
+{% endif %}
