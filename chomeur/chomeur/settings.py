@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+ROOT_PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_tex',
 ]
 
 MIDDLEWARE = [
@@ -66,7 +67,18 @@ TEMPLATES = [
             ],
         },
     },
+    {
+        'NAME': 'tex',
+        'BACKEND': 'django_tex.engine.TeXEngine',
+        'APP_DIRS': True,
+        'DIRS': [
+            '%s/templates' % ROOT_PATH
+#            '%s/templates' % BASE_DIR
+        ],
+    },
 ]
+
+LATEX_INTERPRETER = 'pdflatex'
 
 MEDIA_ROOT = '/home/andreas/DjangoTextdateien'
 

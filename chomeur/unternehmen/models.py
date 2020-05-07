@@ -27,7 +27,7 @@ class Angebot(models.Model):
     ort = models.CharField(max_length=255, default="unbekannt")
     telefon = models.CharField('Telefon (Festnetz)', max_length=32, default="unbekannt")
     mobiltelefon = models.CharField(max_length=32, default="unbekannt")
-    email = models.CharField('E-Mail', max_length=32, default="unbekannt")
+    email = models.CharField('E-Mail', max_length=128, default="unbekannt")
     quelle = models.CharField(max_length=128, default="unbekannt")
     website = models.CharField('Webseite', max_length=64, default="unbekannt")
     ergebnis = models.TextField(max_length=1024, default="steht noch aus")
